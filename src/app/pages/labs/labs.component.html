@@ -1,0 +1,170 @@
+<div class="container">
+    <h1>Hola este es mi primer proyecto</h1>
+    <h2>{{welcome}}</h2>
+    <ul>
+      @for (task of tasks(); track task) {
+        <li>{{task}}</li>
+      }
+    </ul>
+    <hr />
+    <h2>
+      {{'Hola'.repeat(5)}}
+    </h2>
+    <p> la suma de 3+3 es {{3+3}} </p>
+    <p> Hola soy {{Name()}} y tengo {{age}} años </p>
+  
+    <hr />
+    <img [src]="person().avatar"  alt="">
+    <input type="number" [value]="person().age">
+    <button [disabled]="disabled"> Click me</button>
+    <p>person: {{person().Name}}</p>
+  
+    <hr />
+    <button (click)="clickHandler()">click Aquí!</button>
+    <button (dblclick)="clickHandler()">doble click!</button>
+    <p>(change)</p>
+    <input type="number" [value]="person().age" (change)="changeHandler($event)">
+    <p>(keydown)</p>
+    <input type="text" [value]="person().Name" (keydown)=" keydownHandler($event)">
+    <p>(keydown)</p>
+    <input type="text" [value]="person().Name" (keydown.shift.t)=" clickHandler()">
+    <h1>Signals</h1>
+    <input type="text" [value]="Name()" (change)="changeHandler($event)">
+    <p>Name: {{Name()}}</p>
+  
+    <ul>
+      <p> total: {{ tasks().length }}</p>
+      @for (task of tasks(); track task; let i = $index) {
+        <li>
+          {{ i }} {{ task }}
+        </li>
+      }
+    </ul>
+  
+    <hr />
+    @if (Name() == 'fabian') {
+      <div>
+        Soy Fabian
+      </div>
+    }
+    @if (Name() == 'fabian')
+      {
+      <div>
+        Soy Fabian X2
+      </div>
+    }
+    <input type="number" [value]="person().age" (change)="changeAge($event)">
+    @if (person().Name == 'fabian' && person().age > 18) {
+      <div>
+        Soy Fabian mayor de edad
+      </div>
+    } @else {
+      Soy nicolas y soy menos de edad
+    }
+    <h2> If Else new</h2>
+    @if (person().Name == 'fabian' && person().age > 18)
+      {
+      <div>
+        Soy Fabian mayor de edad
+      </div>
+    }
+    @else
+    {
+    <div>
+      Soy Nicolas y soy menor de edad
+    </div>
+  }
+  <hr />
+  <input type="text" [value]="person().Name" (change)=" changeName($event)">
+  <div>
+    @switch (person().Name) {
+      @case ('fabian') {
+        <p> Yo soy Fabi</p>
+      }
+      @case ('Camilo') {
+        <p> Yo soy Cami</p>
+      }
+      @case ('Mariana') {
+        <p> Yo soy Mari</p>
+      }
+      @default {
+        <p> yo no soy nadie</p>
+      }
+    }
+  </div>
+  
+  <hr />
+  <input type="color" [formControl]="colorControl">
+  <p>color: {{ colorControl.value }}</p>
+  <svg>
+    <g>
+      <rect x="0" y="0" height="100" width="100" [attr.fill]="colorControl.value"></rect>
+    </g>
+  </svg>
+  <hr />
+  <input type="number" [formControl]="widthControl">
+  <span class="box" [style.width.px]="widthControl.value">
+  
+  </span>
+  <hr />
+  <p>
+    <input type="text" [formControl]="nameControl"> <br />
+    <span class="message-error" [class.show]="nameControl.invalid && nameControl.touched">Nombre Invalido </span>
+  </p>
+  <p>
+    <input type="text">
+  </p>
+  <hr />
+  <h2>NEW FOR</h2>
+  <ul>
+    <p> total: {{ tasks().length }}</p>
+    @for (task of tasks(); track task; let i = $index) {
+      <li>
+        {{ i }} {{ task }}
+      </li>
+    }
+  </ul>
+  <ul>
+    @for (task of tasks(); track task; let i= $index){
+      <li>
+        {{ i }} {{ task }}
+      </li>
+      } @empty {
+      <li><strong>la lista esta en vacio</strong></li>
+    }
+  </ul>
+  <hr />
+  <h2>New Switch case</h2>
+  <div>
+    @switch (person().Name) {
+      @case ('fabian') {
+        <p> Yo soy Fabi</p>
+      }
+      @case ('Camilo') {
+        <p> Yo soy Cami</p>
+      }
+      @case ('Mariana') {
+        <p> Yo soy Mari</p>
+      }
+      @default {
+        <p> yo no soy nadie</p>
+      }
+    }
+  </div>
+  <div>
+    @switch (person().Name) {
+      @case ('fabian') {
+        <p>Yo soy fabi</p>
+      }
+      @case ('Camilo') {
+        <p>Yo soy cami</p>
+      }
+      @case ('Mariana') {
+        <p>Yo soy mari</p>
+      }
+      @default {
+        <p>yo no soy nadie</p>}
+      }
+    </div>
+  
+  </div>

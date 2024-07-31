@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -9,5 +10,11 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'todoapp';
+  title = 'todo-app';
+  welcome = 'Hola';
+  tasks = [
+    'Instalar el Angular CLI', 
+    'Crear un nuevo proyecto',
+    'Crear componentes',
+  ];
 }
